@@ -5,6 +5,7 @@ public class ObjectSpawner : MonoBehaviour
 
 {
     public GameObject[] spawnables;
+    public GUI _gui;
     private float _randomspawn=0f;
     public bool canSpawn=true;
     public float spawnTime;
@@ -16,13 +17,14 @@ public class ObjectSpawner : MonoBehaviour
 
     public void Start()
     {
+        _gui = FindObjectOfType<GUI>();
         resetDelay();
     }
 
     public void Update()
     {
 //        Debug.Log("Je suis à " + GUI.tempsDepart + "d'un maximum de " +GUI.tempsLimite);
-        if (GUI.tempsDepart < GUI.tempsLimite)
+        if (_gui.tempsDepart < _gui.tempsLimite)
         {
             timer += 1 * Time.deltaTime;
             if (timer >= delay)

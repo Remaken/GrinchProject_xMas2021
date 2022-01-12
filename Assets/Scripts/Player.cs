@@ -14,9 +14,12 @@ public class Player : MonoBehaviour
     public Text scoreText;
     public Text timeText;
     
+    public GUI _gui;
+    
     
     private void Start()
     {
+        _gui = FindObjectOfType<GUI>();
         Respawn();
         anim = GetComponent<Animator>();
         UpdateScoreText();
@@ -146,7 +149,7 @@ public class Player : MonoBehaviour
 
     private void UpdateTimeText()
     {
-        timeText.text = "Time left : " + Mathf.Floor(GUI.tempsRestant).ToString() ;
+        timeText.text = "Time left : " + Mathf.Floor(_gui.tempsRestant).ToString() ;
     }
     
 }
