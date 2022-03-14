@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public int score = 0;
     public GameObject[] placement;
     public GameObject[] indicators;
-    [SerializeField] private int _positionActuelle = 0;
+    private int _positionActuelle = 0;
     private bool gift = false;
     private Animator anim;
     public Text scoreText;
