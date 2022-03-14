@@ -1680,9 +1680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dac3798fb2ef54eb6f87b733a2ceac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempsDepart: 0
-  tempsLimite: 20
-  tempsRestant: 0
 --- !u!61 &492510554
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4417,9 +4414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dac3798fb2ef54eb6f87b733a2ceac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempsDepart: 0
-  tempsLimite: 20
-  tempsRestant: 0
 --- !u!1 &1273883735
 GameObject:
   m_ObjectHideFlags: 0
@@ -5556,7 +5550,7 @@ GameObject:
   - component: {fileID: 1860914161}
   - component: {fileID: 1860914162}
   m_Layer: 0
-  m_Name: SoundBlock
+  m_Name: 5 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5895,7 +5889,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d5719c2123422ca4496cdf4027b2c660, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
