@@ -1594,7 +1594,6 @@ GameObject:
   m_Component:
   - component: {fileID: 492510552}
   - component: {fileID: 492510551}
-  - component: {fileID: 492510553}
   - component: {fileID: 492510554}
   m_Layer: 0
   m_Name: Storage
@@ -1668,21 +1667,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &492510553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492510550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96dac3798fb2ef54eb6f87b733a2ceac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tempsDepart: 0
-  tempsLimite: 20
-  tempsRestant: 0
 --- !u!61 &492510554
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4581,30 +4565,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 921683531230619655, guid: 4c4c5e2f1f56405459f8225e47c1b7ac, type: 3}
   m_PrefabInstance: {fileID: 1198513330}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1383740822 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1374043206539636371, guid: 4dee026cec41c7a44a495ab28a5da617, type: 3}
-  m_PrefabInstance: {fileID: 1374043206819041267}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1383740828
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383740822}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 87695d7aa17657247845ad7a2889245c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1388078368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4910300143749187516, guid: 435a29a2b6b9a1f49825a628ea37ec9d, type: 3}
@@ -6619,5 +6579,6 @@ PrefabInstance:
       propertyPath: placement.Array.data[7]
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1374043206539636374, guid: 4dee026cec41c7a44a495ab28a5da617, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4dee026cec41c7a44a495ab28a5da617, type: 3}
