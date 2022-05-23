@@ -1,3 +1,5 @@
+using System;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,8 +17,26 @@ public class Player : MonoBehaviour
     public Text timeText;
     
     public GUI _gui;
-    
-    
+
+
+
+    private void OnEnable()
+    {
+        //InputManager.MovementEvent += PlayerMovement;
+        InputManager.MoveRight += GoRight;
+        InputManager.MoveLeft += GoLeft;
+        InputManager.DropItem += DropItem;
+    }
+  
+
+
+    private void OnDisable()
+    {
+        //InputManager.MovementEvent -= PlayerMovement;
+        InputManager.MoveRight -= GoRight;
+        InputManager.MoveLeft -= GoLeft;
+        InputManager.DropItem -= DropItem;
+    }
     private void Start()
     {
         _gui = FindObjectOfType<GUI>();
@@ -28,38 +48,7 @@ public class Player : MonoBehaviour
     public void Update()
     {
         UpdateTimeText();
-        
-        if (_positionActuelle>=0 && _positionActuelle<placement.Length-1)
-        {
-            if (Input.GetKeyDown(KeyCode.D)||(Input.GetKeyDown(KeyCode.RightArrow)))
-            { 
-                _positionActuelle++;
-                gameObject.GetComponent<SpriteRenderer>().flipX=false;           
-                this.transform.position = placement[_positionActuelle].transform.position;
-            }
-        }
 
-        if (_positionActuelle<placement.Length&&_positionActuelle>0)
-        {
-            if (Input.GetKeyDown(KeyCode.Q)||(Input.GetKeyDown(KeyCode.LeftArrow)))
-            {
-                _positionActuelle--;
-                gameObject.GetComponent<SpriteRenderer>().flipX=true;
-                this.transform.position = placement[_positionActuelle].transform.position;
-            }
-        }
-        
-        if (Input.GetKeyDown(KeyCode.G)||Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (objectObtained==true)
-            {
-                Debug.Log("je jette");
-                ObjectDeposit();
-            } 
-            // TODO:Jetter object animation?
-            Debug.Log("Throw");
-        }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -151,5 +140,55 @@ public class Player : MonoBehaviour
     {
         timeText.text = "Time left : " + Mathf.Floor(_gui.tempsRestant).ToString() ;
     }
+
+    /*private void PlayerMovement(float inputValue)
+    {
+        print(inputValue);
+        if (_positionActuelle>=0 && _positionActuelle<placement.Length-1)
+        {
+            if (inputValue > 0)
+            { 
+                _positionActuelle++;
+                gameObject.GetComponent<SpriteRenderer>().flipX=false;           
+                this.transform.position = placement[_positionActuelle].transform.position;
+            }
+        }
+
+        if (_positionActuelle<placement.Length&&_positionActuelle>0)
+        {
+            if (inputValue < 0)
+            {
+                _positionActuelle--;
+                gameObject.GetComponent<SpriteRenderer>().flipX=true;
+                this.transform.position = placement[_positionActuelle].transform.position;
+            }
+        }
+    }*/
+
+    private void GoLeft()
+    {
+        if (_positionActuelle < placement.Length && _positionActuelle > 0)
+        {
+            _positionActuelle--;
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            this.transform.position = placement[_positionActuelle].transform.position;
+        }
+    }
     
+    private void GoRight()
+    {if (_positionActuelle>=0 && _positionActuelle<placement.Length-1)
+        {
+                _positionActuelle++;
+                gameObject.GetComponent<SpriteRenderer>().flipX=false;
+                this.transform.position = placement[_positionActuelle].transform.position;
+        }
+    }
+    private void DropItem()
+    {
+        if (objectObtained==true)
+        {
+            ObjectDeposit();
+        } 
+        // TODO:Jetter object animation?
+    }
 }
